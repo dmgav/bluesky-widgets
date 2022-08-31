@@ -194,7 +194,12 @@ class RunEngineClient:
                 if new_allowed_devices_uid != self._allowed_devices_uid:
                     self.load_allowed_devices()
 
-            except (self._client.RequestTimeoutError, self._client.RequestError, self._client.ClientError):
+            except (
+                self._client.RequestTimeoutError,
+                self._client.HTTPRequestError,
+                self._client.HTTPClientError,
+                self._client.HTTPServerError,
+            ):
                 self._re_manager_connected = False
             if (status != self._re_manager_status) or (accessible != self._re_manager_connected):
                 # Status changed. Initiate the updates
