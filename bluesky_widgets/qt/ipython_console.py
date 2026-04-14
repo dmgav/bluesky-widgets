@@ -1,13 +1,13 @@
+from qtconsole.manager import QtKernelManager
+from qtconsole.rich_jupyter_widget import RichJupyterWidget
+from qtpy.QtCore import Qt, Signal, Slot
 from qtpy.QtWidgets import (
+    QLabel,
+    QPushButton,
+    QSizePolicy,
     QVBoxLayout,
     QWidget,
-    QSizePolicy,
-    QPushButton,
-    QLabel,
 )
-from qtpy.QtCore import Signal, Slot, Qt
-from qtconsole.rich_jupyter_widget import RichJupyterWidget
-from qtconsole.manager import QtKernelManager
 
 
 class QtReIPythonConsole(QWidget):
